@@ -1,62 +1,93 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'poppins', sans-serif;
     box-sizing: border-box;
 }
-body{
+body {
     display: flex;
     background: #0f0e17;
     justify-content: center;     
-    height: 100vh;
+    /* Removed fixed height to prevent overflow issues */
+    min-height: 100vh;  
 }
-.container{
-    margin: 50px 50px 50px 50px;
-    width: 100%;
+.container {
+    /* Adjusted margins to avoid horizontal scrolling issues */
+    margin: 50px auto;
+    width: 90%;
+    max-width: 800px; /* Prevents excessive width */
     height: auto;
-    /*background: #232946;*/
     display: flex;
     flex-direction: row;
 }
-.leftSubContainer{
+.leftSubContainer {
     flex: 1;
-    /*background: pink;*/
     border: 3.5px solid #2e365c;
     border-radius: 25px;
+    padding: 20px; /* Added padding to prevent text cramping */
 }
-.leftSubContainer h1{
-    padding-top: 20px;
+.leftSubContainer h1 {
     text-align: center;
     color: #fffffe;
     font-weight: 500;
 }
-.rightSubContainer{
-    padding: 20px 20px 20px 20px;
+.rightSubContainer {
+    padding: 0px 40px;
     flex: 2;
-    /*background: powderblue;*/
-    
 }
-.inputBar input{
-    width: 70%;
+.inputBar {
+    display: flex;
+    align-items: center;
+}
+.inputBar input {
+    width: 90%;
     height: 50px;
-    border: 2px;
+    /* Fixed border issue */
+    border: 2px solid #2e365c;
     border-radius: 10px;
     font-size: medium;
-    padding-left: 8px;
-    background-color: #2e365c;
     color: #fffffe;
+    padding-left: 10px;
+    background-color: #2e365c;
+    outline: none;
+    transition: 0.3s ease;
 }
 input::placeholder {
-    color: gray; 
     font-style: italic; 
-    opacity: 1; 
+    color: #fffffeab;
+    font-size: medium;
 }
-
-.inputBar button{
+input:focus::placeholder {
+    color: transparent;
+}
+.inputBar button {
     border-radius: 8px;
     border: 0px;
     background: #f25f4c;
     height: 50px;
     width: 50px;
     margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+/* Improved hover effect for a smoother transition */
+button:hover {
+    background: #d94b3d;
+}
+.tasks {
+    width: 100%;
+    height: auto; /* Adjusted height to prevent fixed overflow */
+    /* Removed yellow background and replaced with theme color */
+    background: #2e365c;
+    margin-top: 15.2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+/* Task styling */
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    color: #fffffe;
 }

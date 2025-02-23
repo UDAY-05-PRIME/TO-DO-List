@@ -12,14 +12,21 @@
             <h1>Progress</h1>
         </div>
         <div class="rightSubContainer">
-            <div class="inputBar">
-                <input type="text" placeholder="Enter your task..." />
-                
-                <button type="submit">
+            <!-- Wrapped input in a form to handle task submission properly -->
+            <form class="inputBar" id="taskForm">  
+                <input type="text" id="taskInput" placeholder="Enter your task..." required/> 
+                <button type="submit" id="addTaskBtn"> 
                     <i class="fa-solid fa-plus fa-2xl" style="color: #fffffe;"></i>
                 </button>
+            </form>
+            <div class="tasks" id="tasksList">
+                <!-- Example Task Structure with Label for Accessibility -->
+                <div class="taskItem">
+                    <input type="checkbox" id="task1">
+                    <label for="task1">This is my first task</label>
+                    
+                </div>
             </div>
-            <div class="tasks"></div>
         </div>
     </div>
     <script src="script.js"></script>
