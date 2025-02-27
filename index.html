@@ -22,9 +22,16 @@
             <div class="tasks" id="tasksList">
                 <!-- Example Task Structure with Label for Accessibility -->
                 <div class="taskItem">
-                    <input type="checkbox" id="task1">
+                    <input type="checkbox" id="checkbox">
                     <label for="task1">This is my first task</label>
-                    
+                    <div class="taskActions">
+                        <button type="edit" id="editTaskBtn"> 
+                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #f25f4c;"></i>
+                        </button>
+                        <button type="delete" class="deleteTaskBtn"> 
+                            <i class="fa-solid fa-trash fa-xl" style="color: #e53170;"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -70,24 +70,55 @@ input:focus::placeholder {
     cursor: pointer;
     transition: 0.3s ease;
 }
-/* Improved hover effect for a smoother transition */
-button:hover {
+
+.inputBar button:hover {
     background: #d94b3d;
 }
-.tasks {
+/*.tasks {
     width: 100%;
-    height: auto; /* Adjusted height to prevent fixed overflow */
-    /* Removed yellow background and replaced with theme color */
+    height: auto;
     background: #2e365c;
     margin-top: 15.2px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
-}
-/* Task styling */
+}*/
 .taskItem {
+    width: 100%;
+    height: auto;
+    background: #2e365c;
+    margin-top: 15.2px;
+    padding: 5px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 5px;
     color: #fffffe;
+    justify-content: space-between; /* Ensures spacing between text and buttons */
+}
+
+.taskActions {
+    margin-left: auto; /* Pushes buttons to the right */
+    display: flex;
+    gap: 5px; /* Adds spacing between buttons */
+}
+
+.deleteTaskBtn{
+    width: 30px;
+    height: 35px;
+    background: #2e365c;
+    border: 0px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+#deletetaskBtn:hover{
+
+}
+#editTaskBtn{
+    width: 30px;
+    height: 35px;
+    background: #2e365c;
+    border: 0px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
