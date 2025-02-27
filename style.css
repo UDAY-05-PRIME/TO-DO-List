@@ -74,20 +74,14 @@ input:focus::placeholder {
 .inputBar button:hover {
     background: #d94b3d;
 }
-/*.tasks {
-    width: 100%;
-    height: auto;
-    background: #2e365c;
+.tasks {
     margin-top: 15.2px;
-    padding: 5px;
-    border-radius: 10px;
-}*/
+}
 .taskItem {
     width: 100%;
     height: auto;
     background: #2e365c;
-    margin-top: 15.2px;
-    padding: 5px;
+    margin-top: 10px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -114,7 +108,7 @@ input:focus::placeholder {
 #deletetaskBtn:hover{
 
 }
-#editTaskBtn{
+.editTaskBtn{
     width: 30px;
     height: 35px;
     background: #2e365c;

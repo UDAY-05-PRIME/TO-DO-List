@@ -59,4 +59,25 @@ tasksList.addEventListener("click", function(event){
         console.log(event.target);
         event.target.closest(".taskItem").remove();
     }
+    if(event.target.closest(".editTaskBtn")){
+    console.log("editting....")
+
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.value = taskLabel.innerText;
+    editInput.classList.add("editInput");
+    
+    taskItem.replaceChild(editInput, taskLabel);
+    editInput.focus();
+
+    function saveEdit(){
+        const newText = editInput.value.trim();
+        if(newText != ""){
+            taskLabel.innerText = newText;
+        }
+        taskItem.replaceChild(taskLabel, editInput);
+    }
+    }
+
+
 });
