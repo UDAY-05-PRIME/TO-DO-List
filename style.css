@@ -88,13 +88,13 @@ input:focus::placeholder {
     gap: 10px;
     padding: 5px;
     color: #fffffe;
-    justify-content: space-between; /* Ensures spacing between text and buttons */
+    justify-content: space-between; 
 }
 
 .taskActions {
-    margin-left: auto; /* Pushes buttons to the right */
+    margin-left: auto; 
     display: flex;
-    gap: 5px; /* Adds spacing between buttons */
+    gap: 5px; 
 }
 
 .deleteTaskBtn{
@@ -126,7 +126,7 @@ input:focus::placeholder {
     text-decoration: line-through;
     opacity: 0.6;
 }
-/* Smooth fade-in effect */
+
 .taskItem {
     opacity: 0;
     transform: scale(0.9);
@@ -140,7 +140,7 @@ input:focus::placeholder {
     }
 }
 
-/* Smooth fade-out effect */
+
 .taskItem.removed {
     animation: fadeOut 0.3s forwards;
 }
@@ -152,7 +152,7 @@ input:focus::placeholder {
     }
 }
 
-/* Input highlight on focus */
+
 #taskInput:focus {
     border: 2px solid #f25f4c;
     background: #2e365c;
