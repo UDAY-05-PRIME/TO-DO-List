@@ -32,7 +32,7 @@ taskForm.addEventListener("submit", function(event){
     taskActions.classList.add("taskActions");
 
     const editTaskBtn = document.createElement("button");
-    editTaskBtn.id = "editTaskBtn";
+    editTaskBtn.classList.add("editTaskBtn");
     editTaskBtn.innerHTML = `<i class="fa-solid fa-pen-to-square fa-xl" style="color: #f25f4c;"></i>`;
 
     const deleteTaskBtn = document.createElement("button");
@@ -58,25 +58,33 @@ tasksList.addEventListener("click", function(event){
     if(event.target.closest(".deleteTaskBtn")){
         console.log(event.target);
         event.target.closest(".taskItem").remove();
-    }
-    if(event.target.closest(".editTaskBtn")){
-    console.log("editting....")
-
-    const editInput = document.createElement("input");
-    editInput.type = "text";
-    editInput.value = taskLabel.innerText;
-    editInput.classList.add("editInput");
-    
-    taskItem.replaceChild(editInput, taskLabel);
-    editInput.focus();
-
-    function saveEdit(){
-        const newText = editInput.value.trim();
-        if(newText != ""){
-            taskLabel.innerText = newText;
         }
-        taskItem.replaceChild(taskLabel, editInput);
-    }
+        if(event.target.closest(".    editTaskBtn")){
+        console.log("editting....")
+
+        const editInput = document.createElement("input");
+        editInput.type = "text";
+        editInput.value = taskLabel.innerText;
+        editInput.classList.add("editInput");
+    
+        taskItem.replaceChild(editInput,     taskLabel);
+        editInput.focus();
+
+        function saveEdit(){
+            const newText = editInput.value.    trim();
+            if(newText != ""){
+                taskLabel.innerText = newText;
+            }
+            taskItem.replaceChild(taskLabel,     editInput);
+        }
+
+        editInput.addEventListener("blur", saveEdit);
+        editInput.addEventListener("keypress",         function(event) {
+            if (event.key === "Enter") {
+                saveEdit();
+            }
+        });
+
     }
 
 
