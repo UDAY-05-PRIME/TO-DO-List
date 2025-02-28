@@ -114,3 +114,11 @@ input:focus::placeholder {
     cursor: pointer;
     transition: 0.3s ease;
 }
+
+.editInput:focus{
+    border: none;
+    background: #2e365c;
+    outline: none;
+    color: #fffffe;
+    font-size: medium;
+}

@@ -1,20 +1,17 @@
-console.log("javascript imported");
+console.log("JavaScript imported");
 
 const taskInput = document.getElementById("taskInput");
 const tasksList = document.getElementById("tasksList");
 const taskForm = document.getElementById("taskForm");
-const addtaskBtn = document.getElementById("addtaskBtn");
-const deleteTaskBtn = document.getElementById("deleteTaskBtn");
-const editTastBtn = document.getElementById("editTaskBtn");
 
-//preventing the refreshing of the page
+// Preventing the page from refreshing on form submission
 taskForm.addEventListener("submit", function(event){
-    console.log("form submittd");
+    console.log("Form submitted");
     event.preventDefault();
     const taskText = taskInput.value.trim();
 
     if(taskText === ""){
-        alert("please enter the task")
+        alert("Please enter a task");
         return;
     }
 
@@ -23,9 +20,9 @@ taskForm.addEventListener("submit", function(event){
 
     const taskCheckbox = document.createElement("input");
     taskCheckbox.type = "checkbox";
-    taskCheckbox.id = "checkbox";
     
     const taskLabel = document.createElement("label");
+    taskLabel.classList.add("taskLabel");  // ✅ Fixed duplicate class
     taskLabel.innerText = taskText;
 
     const taskActions = document.createElement("div");
@@ -36,9 +33,8 @@ taskForm.addEventListener("submit", function(event){
     editTaskBtn.innerHTML = `<i class="fa-solid fa-pen-to-square fa-xl" style="color: #f25f4c;"></i>`;
 
     const deleteTaskBtn = document.createElement("button");
-deleteTaskBtn.classList.add("deleteTaskBtn"); // ✅ Add class
-deleteTaskBtn.innerHTML = `<i class="fa-solid fa-trash fa-xl" style="color: #e53170;"></i>`;
-
+    deleteTaskBtn.classList.add("deleteTaskBtn"); // ✅ Fixed missing class
+    deleteTaskBtn.innerHTML = `<i class="fa-solid fa-trash fa-xl" style="color: #e53170;"></i>`;
 
     taskActions.appendChild(editTaskBtn);
     taskActions.appendChild(deleteTaskBtn);
@@ -47,45 +43,50 @@ deleteTaskBtn.innerHTML = `<i class="fa-solid fa-trash fa-xl" style="color: #e53
     taskItem.appendChild(taskLabel);
     taskItem.appendChild(taskActions);
 
-    tasksList.appendChild(taskItem)
+    tasksList.appendChild(taskItem);
 
     taskInput.value = "";
-
-
 });
 
 tasksList.addEventListener("click", function(event){
     if(event.target.closest(".deleteTaskBtn")){
         console.log(event.target);
         event.target.closest(".taskItem").remove();
-        }
-        if(event.target.closest(".    editTaskBtn")){
-        console.log("editting....")
+    }
+    
+    if(event.target.closest(".editTaskBtn")){
+        console.log("Editing...");
+
+        const taskItem = event.target.closest(".taskItem");
+        const taskLabel = taskItem.querySelector(".taskLabel");
+
+        if (!taskLabel) return;  // ✅ Prevents errors if taskLabel is missing
+
+        const originalText = taskLabel.innerText;
 
         const editInput = document.createElement("input");
-        editInput.type = "text";
-        editInput.value = taskLabel.innerText;
         editInput.classList.add("editInput");
-    
-        taskItem.replaceChild(editInput,     taskLabel);
+        editInput.type = "text";
+        editInput.value = originalText;
+
+        taskItem.replaceChild(editInput, taskLabel);
         editInput.focus();
 
         function saveEdit(){
-            const newText = editInput.value.    trim();
-            if(newText != ""){
-                taskLabel.innerText = newText;
+            const newText = editInput.value.trim();
+            if(newText !== ""){
+                taskLabel.innerText = newText;  // ✅ Fixed innerText case
+            } else {
+                taskLabel.innerText = originalText;
             }
-            taskItem.replaceChild(taskLabel,     editInput);
+            taskItem.replaceChild(taskLabel, editInput);  // ✅ Fixed variable name
         }
 
         editInput.addEventListener("blur", saveEdit);
-        editInput.addEventListener("keypress",         function(event) {
-            if (event.key === "Enter") {
-                saveEdit();
+        editInput.addEventListener("keypress", function(event){
+            if(event.key === "Enter"){
+                saveEdit(); // ✅ Fixed function call
             }
         });
-
     }
-
-
 });
